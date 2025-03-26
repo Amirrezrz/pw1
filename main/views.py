@@ -19,12 +19,12 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'main/register.html', {'form': form})
 
-@login_required
+#@login_required
 def dashboard(request):
     ads = RentAd.objects.filter(user=request.user)
     return render(request, 'main/dashboard.html', {'ads': ads})
 
-@login_required
+#@login_required
 def rent_create(request):
     if request.method == 'POST':
         form = RentAdForm(request.POST, request.FILES)
